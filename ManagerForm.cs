@@ -25,50 +25,30 @@ namespace CafeApp
 
         private void СancelDeliveryButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+            
         }
 
         private void ChooseCookerButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+            
         }
 
         private void CancelCookerButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
         }
 
         private void ChooseDeliveryButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+          
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+            
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
         }
     }
 }

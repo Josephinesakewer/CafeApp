@@ -27,39 +27,26 @@ namespace CafeApp
 
         private void TotalSum_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            //labelClientWelcome.Text += " " + client?.Name;
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+            
 
         }
 
         private void DishBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+            
         }
 
         private void AddDish_Click(object sender, EventArgs e)
         {
             var dishName = DishBox.SelectedItem as string;
             var count = (int)CountDish.Value;
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+           
 
         }
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+           
         }
     }
 }

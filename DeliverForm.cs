@@ -25,18 +25,12 @@ namespace CafeApp
 
         private void ExecuteButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+           
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            var optionBuilder = new DbContextOptionsBuilder<CafeContext>();
-            var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
-            context = new CafeContext(options);
+          
         }
     }
 }
