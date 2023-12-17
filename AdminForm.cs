@@ -31,19 +31,40 @@ namespace CafeApp
 
         private void SaveButtonWorker_Click(object sender, EventArgs e)
         {
-            context.SaveChanges();
+            try 
+            { 
+                context.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("вы ввели некорректные данные");
+            }            
             TablesWorkers.Invalidate();
         }
 
         private void SaveButtonStaff_Click(object sender, EventArgs e)
         {
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("вы ввели некорректные данные");
+            }
             TableStaff.Invalidate();
         }
 
         private void SaveDish_Click(object sender, EventArgs e)
         {
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("вы ввели некорректные данные");
+            }
             TablesDish.Invalidate();
         }
     }

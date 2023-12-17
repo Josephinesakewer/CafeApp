@@ -1,4 +1,4 @@
-using CafeApp.Models;
+﻿using CafeApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CafeApp
@@ -66,12 +66,27 @@ namespace CafeApp
                                     break;
                                 }
                             default:
-                                break;
+                                {
+                                    MessageBox.Show("такого пользователя не существует");
+                                    break;
+                                }
                         }
+                        
                         this.Show();
                     }
+                    else
+                    {
+                        MessageBox.Show("такого пользователя не существует");
+
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("такого пользователя не существует");
+                }
+               
             }
+           
         }
 
         private void buttonReg_Click(object sender, EventArgs e)
