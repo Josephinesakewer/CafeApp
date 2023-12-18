@@ -28,7 +28,8 @@ namespace CafeApp
             var namesDishes = context.Dishes.Select(d => d.NameM).ToList();
             foreach (var name in namesDishes)
                 DishBox.Items.Add(name);
-            DishBox.SelectedIndex = 0;
+            if(DishBox.Items.Count > 0)
+                DishBox.SelectedIndex = 0;
         }
 
         private void TotalSum_Click(object sender, EventArgs e)
