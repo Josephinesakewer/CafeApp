@@ -139,6 +139,7 @@ namespace CafeApp
             var oId = (int)OrdersList.SelectedItem;
             var o = context.Orders.FirstOrDefault(o => o.Id == oId);
             o.Status = startStatus;
+            o.DateTimeFinish = DateTime.Now;
             context.SaveChanges();
             OrdersList.Items.Clear();
             var orderIds = context.Orders.
