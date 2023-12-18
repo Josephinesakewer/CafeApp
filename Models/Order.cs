@@ -27,8 +27,9 @@ public class Order
     public  Worker? Cooker { get; set; }
 
     public  Worker? Deliever { get; set; }
+    public List<Dish> Dishes { get; set; }  = new ();
 
-    public List<OrderDish> OrderDishes { get; set; } = new ();
+    public List<Basket> Baskets { get; set; } = new ();
 
     public Worker? Seller { get; set; }
 

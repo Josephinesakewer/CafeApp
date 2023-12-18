@@ -87,7 +87,7 @@
             tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(792, 417);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "Страница 1";
+            tabPage1.Text = "Рабочие";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
@@ -145,7 +145,7 @@
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(792, 417);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "Страница 2";
+            tabPage2.Text = "Роли";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
@@ -202,7 +202,7 @@
             tabPage3.Padding = new Padding(3);
             tabPage3.Size = new Size(792, 417);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "Cтраница 3";
+            tabPage3.Text = "Блюда";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4

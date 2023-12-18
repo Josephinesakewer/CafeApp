@@ -31,10 +31,10 @@
             label1 = new Label();
             OrdersList = new ComboBox();
             label2 = new Label();
-            deliveryman = new ComboBox();
+            deliverList = new ComboBox();
             label3 = new Label();
-            Cooker = new ComboBox();
-            textBox1 = new TextBox();
+            CookerList = new ComboBox();
+            textBoxStatus = new TextBox();
             label4 = new Label();
             ChooseDeliveryButton = new Button();
             ChooseCookerButton = new Button();
@@ -42,6 +42,10 @@
             CancelCookerButton = new Button();
             CloseButton = new Button();
             UpdateButton = new Button();
+            label5 = new Label();
+            textBoxDeliver = new TextBox();
+            label6 = new Label();
+            textBoxCooker = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -60,6 +64,7 @@
             OrdersList.Name = "OrdersList";
             OrdersList.Size = new Size(151, 28);
             OrdersList.TabIndex = 1;
+            OrdersList.SelectedIndexChanged += OrdersList_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -70,13 +75,14 @@
             label2.TabIndex = 2;
             label2.Text = "Доставщик";
             // 
-            // deliveryman
+            // deliverList
             // 
-            deliveryman.FormattingEnabled = true;
-            deliveryman.Location = new Point(28, 117);
-            deliveryman.Name = "deliveryman";
-            deliveryman.Size = new Size(151, 28);
-            deliveryman.TabIndex = 3;
+            deliverList.FormattingEnabled = true;
+            deliverList.Location = new Point(28, 117);
+            deliverList.Name = "deliverList";
+            deliverList.Size = new Size(151, 28);
+            deliverList.TabIndex = 3;
+            deliverList.SelectedIndexChanged += deliveryman_SelectedIndexChanged;
             // 
             // label3
             // 
@@ -87,20 +93,21 @@
             label3.TabIndex = 4;
             label3.Text = "Повар";
             // 
-            // Cooker
+            // CookerList
             // 
-            Cooker.FormattingEnabled = true;
-            Cooker.Location = new Point(28, 198);
-            Cooker.Name = "Cooker";
-            Cooker.Size = new Size(151, 28);
-            Cooker.TabIndex = 5;
+            CookerList.FormattingEnabled = true;
+            CookerList.Location = new Point(28, 198);
+            CookerList.Name = "CookerList";
+            CookerList.Size = new Size(151, 28);
+            CookerList.TabIndex = 5;
+            CookerList.SelectedIndexChanged += Cooker_SelectedIndexChanged;
             // 
-            // textBox1
+            // textBoxStatus
             // 
-            textBox1.Location = new Point(237, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 6;
+            textBoxStatus.Location = new Point(237, 49);
+            textBoxStatus.Name = "textBoxStatus";
+            textBoxStatus.Size = new Size(125, 27);
+            textBoxStatus.TabIndex = 6;
             // 
             // label4
             // 
@@ -113,7 +120,7 @@
             // 
             // ChooseDeliveryButton
             // 
-            ChooseDeliveryButton.Location = new Point(250, 116);
+            ChooseDeliveryButton.Location = new Point(427, 117);
             ChooseDeliveryButton.Name = "ChooseDeliveryButton";
             ChooseDeliveryButton.Size = new Size(101, 29);
             ChooseDeliveryButton.TabIndex = 8;
@@ -123,7 +130,7 @@
             // 
             // ChooseCookerButton
             // 
-            ChooseCookerButton.Location = new Point(257, 198);
+            ChooseCookerButton.Location = new Point(427, 197);
             ChooseCookerButton.Name = "ChooseCookerButton";
             ChooseCookerButton.Size = new Size(94, 29);
             ChooseCookerButton.TabIndex = 9;
@@ -133,7 +140,7 @@
             // 
             // СancelDeliveryButton
             // 
-            СancelDeliveryButton.Location = new Point(427, 116);
+            СancelDeliveryButton.Location = new Point(558, 118);
             СancelDeliveryButton.Name = "СancelDeliveryButton";
             СancelDeliveryButton.Size = new Size(94, 29);
             СancelDeliveryButton.TabIndex = 10;
@@ -143,7 +150,7 @@
             // 
             // CancelCookerButton
             // 
-            CancelCookerButton.Location = new Point(427, 197);
+            CancelCookerButton.Location = new Point(558, 197);
             CancelCookerButton.Name = "CancelCookerButton";
             CancelCookerButton.Size = new Size(94, 29);
             CancelCookerButton.TabIndex = 11;
@@ -163,7 +170,7 @@
             // 
             // UpdateButton
             // 
-            UpdateButton.Location = new Point(561, 116);
+            UpdateButton.Location = new Point(573, 12);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(94, 29);
             UpdateButton.TabIndex = 13;
@@ -171,11 +178,47 @@
             UpdateButton.UseVisualStyleBackColor = true;
             UpdateButton.Click += UpdateButton_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(210, 94);
+            label5.Name = "label5";
+            label5.Size = new Size(171, 20);
+            label5.TabIndex = 15;
+            label5.Text = "Выбранный доставщик";
+            // 
+            // textBoxDeliver
+            // 
+            textBoxDeliver.Location = new Point(237, 118);
+            textBoxDeliver.Name = "textBoxDeliver";
+            textBoxDeliver.Size = new Size(125, 27);
+            textBoxDeliver.TabIndex = 14;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(222, 175);
+            label6.Name = "label6";
+            label6.Size = new Size(140, 20);
+            label6.TabIndex = 17;
+            label6.Text = "Выбранный повар";
+            // 
+            // textBoxCooker
+            // 
+            textBoxCooker.Location = new Point(237, 199);
+            textBoxCooker.Name = "textBoxCooker";
+            textBoxCooker.Size = new Size(125, 27);
+            textBoxCooker.TabIndex = 16;
+            // 
             // ManagerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(679, 260);
+            Controls.Add(label6);
+            Controls.Add(textBoxCooker);
+            Controls.Add(label5);
+            Controls.Add(textBoxDeliver);
             Controls.Add(UpdateButton);
             Controls.Add(CloseButton);
             Controls.Add(CancelCookerButton);
@@ -183,10 +226,10 @@
             Controls.Add(ChooseCookerButton);
             Controls.Add(ChooseDeliveryButton);
             Controls.Add(label4);
-            Controls.Add(textBox1);
-            Controls.Add(Cooker);
+            Controls.Add(textBoxStatus);
+            Controls.Add(CookerList);
             Controls.Add(label3);
-            Controls.Add(deliveryman);
+            Controls.Add(deliverList);
             Controls.Add(label2);
             Controls.Add(OrdersList);
             Controls.Add(label1);
@@ -201,10 +244,10 @@
         private Label label1;
         private ComboBox OrdersList;
         private Label label2;
-        private ComboBox deliveryman;
+        private ComboBox deliverList;
         private Label label3;
-        private ComboBox Cooker;
-        private TextBox textBox1;
+        private ComboBox CookerList;
+        private TextBox textBoxStatus;
         private Label label4;
         private Button ChooseDeliveryButton;
         private Button ChooseCookerButton;
@@ -212,5 +255,9 @@
         private Button CancelCookerButton;
         private Button CloseButton;
         private Button UpdateButton;
+        private Label label5;
+        private TextBox textBoxDeliver;
+        private Label label6;
+        private TextBox textBoxCooker;
     }
 }

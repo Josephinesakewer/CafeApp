@@ -13,6 +13,6 @@ public class Dish
     public string? Description { get; set; }
 
     public double? Price { get; set; }
-
-    public List<OrderDish> OrderDishes { get; set; } = new ();
+    public List<Order> Orders { get; set; } = new();
+    public List<Basket> Baskets { get; set; } = new ();
 }

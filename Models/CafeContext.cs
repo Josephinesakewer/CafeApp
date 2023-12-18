@@ -6,9 +6,11 @@ namespace CafeApp.Models;
 
 public class CafeContext : DbContext
 {
- 
+    public CafeContext() :base() { }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+     => optionsBuilder.UseSqlite("Data Source=cafe.db");
 
-    public CafeContext(DbContextOptions<CafeContext> options)
+    public CafeContext(DbContextOptions options)
         : base(options)
     {
         Database.EnsureCreated();
@@ -20,14 +22,13 @@ public class CafeContext : DbContext
 
     public DbSet<Order> Orders { get; set; }
 
-    public DbSet<OrderDish> OrderDishes { get; set; }
+    public DbSet<Basket> Baskets { get; set; }
 
     public DbSet<Staff> Staff { get; set; }
 
     public DbSet<StatusOrder> StatusOrders { get; set; }
 
     public DbSet<Worker> Workers { get; set; }
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -43,6 +44,20 @@ public class CafeContext : DbContext
             HasOne(o => o.Seller).
             WithMany(w => w.OrderSellers).
             HasForeignKey(o => o.SellerId);
+        modelBuilder.Entity<Order>().
+            HasMany(o => o.Dishes).
+            WithMany(d => d.Orders).
+            UsingEntity<Basket>(
+            b=> b.
+                HasOne(bt => bt.Dish).
+                WithMany( d=> d.Baskets).
+                HasForeignKey(bt => bt.DishId),
+            b => b.
+                HasOne( bt => bt.Order).
+                WithMany( o =>o.Baskets).
+                HasForeignKey(bt => bt.OrderId)
+            
+            );
     }
 
 }

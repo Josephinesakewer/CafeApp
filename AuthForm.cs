@@ -16,7 +16,7 @@ namespace CafeApp
             if (adminstaf == null)
             {
                 adminstaf = new Staff { Name = "admin" };
-                var worker = new Worker { Login="admin",Password ="admin", Staff = adminstaf };
+                var worker = new Worker { Login = "admin", Password = "admin", Staff = adminstaf };
                 context.Workers.Add(worker);
                 context.SaveChanges();
             }
@@ -52,7 +52,7 @@ namespace CafeApp
                                 }
                             case "cooker":
                                 {
-                                    new CookerForm().ShowDialog();  
+                                    new CookerForm(w).ShowDialog();  
                                     break;
                                 }
                             case "manager":
@@ -62,7 +62,7 @@ namespace CafeApp
                                 }
                             case "deliver":
                                 {
-                                    new DeliverForm().ShowDialog(); 
+                                    new DeliverForm(w).ShowDialog(); 
                                     break;
                                 }
                             default:
