@@ -47,9 +47,12 @@ namespace CafeApp
                 .ToList();
             foreach (var name in cookerNames)
                 CookerList.Items.Add(name);
-            OrdersList.SelectedIndex = 0;
-            deliverList.SelectedIndex = 0;
-            CookerList.SelectedIndex = 0;
+            if(OrdersList.Items.Count > 0)
+                OrdersList.SelectedIndex = 0;
+            if(deliverList.Items.Count > 0)
+                deliverList.SelectedIndex = 0;
+            if(CookerList.Items?.Count > 0)
+                CookerList.SelectedIndex = 0;
         }
 
         private void СancelDeliveryButton_Click(object sender, EventArgs e)
@@ -148,7 +151,9 @@ namespace CafeApp
                 .Select(d => d.Id).ToList();
             foreach (var name in orderIds)
                 OrdersList.Items.Add(name);
-            OrdersList.SelectedIndex = 0;
+
+            if (OrdersList.Items.Count > 0)
+                OrdersList.SelectedIndex = 0;
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -178,9 +183,12 @@ namespace CafeApp
                 .ToList();
             foreach (var name in cookerNames)
                 CookerList.Items.Add(name);
-            OrdersList.SelectedIndex = 0;
-            deliverList.SelectedIndex = 0;
-            CookerList.SelectedIndex = 0;
+            if (OrdersList.Items.Count > 0)
+                OrdersList.SelectedIndex = 0;
+            if (deliverList.Items.Count > 0)
+                deliverList.SelectedIndex = 0;
+            if (CookerList.Items?.Count > 0)
+                CookerList.SelectedIndex = 0;
         }
 
         private void OrdersList_SelectedIndexChanged(object sender, EventArgs e)
