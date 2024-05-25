@@ -32,15 +32,16 @@
             label1 = new Label();
             ExecuteButton = new Button();
             CancelButton = new Button();
+            ExitButton = new Button();
             SuspendLayout();
             // 
             // OrdersList
             // 
             OrdersList.FormattingEnabled = true;
             OrdersList.Location = new Point(27, 73);
-            OrdersList.Margin = new Padding(4, 4, 4, 4);
+            OrdersList.Margin = new Padding(4);
             OrdersList.Name = "OrdersList";
-            OrdersList.Size = new Size(191, 36);
+            OrdersList.Size = new Size(191, 29);
             OrdersList.TabIndex = 0;
             // 
             // label1
@@ -49,14 +50,14 @@
             label1.Location = new Point(93, 41);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(62, 28);
+            label1.Size = new Size(50, 21);
             label1.TabIndex = 1;
             label1.Text = "Заказ";
             // 
             // ExecuteButton
             // 
             ExecuteButton.Location = new Point(226, 67);
-            ExecuteButton.Margin = new Padding(4, 4, 4, 4);
+            ExecuteButton.Margin = new Padding(4);
             ExecuteButton.Name = "ExecuteButton";
             ExecuteButton.Size = new Size(132, 46);
             ExecuteButton.TabIndex = 2;
@@ -67,7 +68,7 @@
             // CancelButton
             // 
             CancelButton.Location = new Point(366, 67);
-            CancelButton.Margin = new Padding(4, 4, 4, 4);
+            CancelButton.Margin = new Padding(4);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(125, 46);
             CancelButton.TabIndex = 3;
@@ -75,17 +76,30 @@
             CancelButton.UseVisualStyleBackColor = true;
             CancelButton.Click += CancelButton_Click;
             // 
+            // ExitButton
+            // 
+            ExitButton.Location = new Point(226, 136);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(132, 32);
+            ExitButton.TabIndex = 4;
+            ExitButton.Text = "Выход";
+            ExitButton.UseVisualStyleBackColor = true;
+            ExitButton.Click += ExitButton_Click;
+            // 
             // DeliverForm
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(527, 158);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(527, 220);
+            Controls.Add(ExitButton);
             Controls.Add(CancelButton);
             Controls.Add(ExecuteButton);
             Controls.Add(label1);
             Controls.Add(OrdersList);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "DeliverForm";
             Text = "DeliverForm";
             ResumeLayout(false);
@@ -98,5 +112,6 @@
         private Label label1;
         private Button ExecuteButton;
         private Button CancelButton;
+        private Button ExitButton;
     }
 }

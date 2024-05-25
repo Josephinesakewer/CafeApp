@@ -29,7 +29,7 @@ namespace CafeApp
             var login = textBoxLogin.Text;
             var password = textBoxPassword.Text;
             var c = context.Clients.FirstOrDefault(c => c.Password == password && c.Login == login);
-            if(c != null)
+            if (c != null)
             {
                 this.Hide();
                 new ClientForm(c).ShowDialog();
@@ -37,11 +37,11 @@ namespace CafeApp
             }
             else
             {
-                var w = context.Workers.Include( w => w.Staff).FirstOrDefault(w => w.Password == password && w.Login == login);
-                if(w != null)
+                var w = context.Workers.Include(w => w.Staff).FirstOrDefault(w => w.Password == password && w.Login == login);
+                if (w != null)
                 {
                     var stuffName = w.Staff?.Name;
-                    if(stuffName != null)
+                    if (stuffName != null)
                     {
                         switch (stuffName)
                         {
@@ -52,7 +52,7 @@ namespace CafeApp
                                 }
                             case "cooker":
                                 {
-                                    new CookerForm(w).ShowDialog();  
+                                    new CookerForm(w).ShowDialog();
                                     break;
                                 }
                             case "manager":
@@ -62,7 +62,7 @@ namespace CafeApp
                                 }
                             case "deliver":
                                 {
-                                    new DeliverForm(w).ShowDialog(); 
+                                    new DeliverForm(w).ShowDialog();
                                     break;
                                 }
                             default:
@@ -71,7 +71,7 @@ namespace CafeApp
                                     break;
                                 }
                         }
-                        
+
                         this.Show();
                     }
                     else
@@ -84,9 +84,9 @@ namespace CafeApp
                 {
                     MessageBox.Show("такого пользователя не существует");
                 }
-               
+
             }
-           
+
         }
 
         private void buttonReg_Click(object sender, EventArgs e)
@@ -101,6 +101,16 @@ namespace CafeApp
             this.Hide();
             new ClientForm(new Models.Client()).ShowDialog();
             this.Show();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace CafeApp
             context.Orders.Load();
             OrderUpdate();
         }
-        private void OrderUpdate() 
+        private void OrderUpdate()
         {
             OrdersList.Items.Clear();
             var orderIds = context.Orders.
@@ -40,13 +40,13 @@ namespace CafeApp
                 .Select(d => d.Id).ToList();
             foreach (var name in orderIds)
                 OrdersList.Items.Add(name);
-            if(OrdersList.Items.Count> 0)
+            if (OrdersList.Items.Count > 0)
                 OrdersList.SelectedIndex = 0;
         }
         private void ExecuteButton_Click(object sender, EventArgs e)
         {
             if (OrdersList.Items.Count == 0) return;
-                var oId = (int)OrdersList.SelectedItem;
+            var oId = (int)OrdersList.SelectedItem;
             var o = context.Orders.FirstOrDefault(o => o.Id == oId);
             var startStatus = context.StatusOrders.FirstOrDefault(s => s.NameS == "cook_ready");
             if (startStatus == null)
@@ -63,7 +63,7 @@ namespace CafeApp
         private void CancelButton_Click(object sender, EventArgs e)
         {
             if (OrdersList.Items.Count == 0) return;
-                var oId = (int)OrdersList.SelectedItem;
+            var oId = (int)OrdersList.SelectedItem;
             var o = context.Orders.FirstOrDefault(o => o.Id == oId);
             var startStatus = context.StatusOrders.FirstOrDefault(s => s.NameS == "cook_cancel");
             if (startStatus == null)
@@ -75,6 +75,11 @@ namespace CafeApp
             context.SaveChanges();
             OrderUpdate();
             MessageBox.Show("заказ отменен");
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

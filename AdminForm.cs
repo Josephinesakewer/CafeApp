@@ -29,20 +29,35 @@ namespace CafeApp
             TablesDish.DataSource = context.Dishes.Local.ToBindingList();
         }
 
-        private void SaveButtonWorker_Click(object sender, EventArgs e)
+        private void ExitButtonWorker_Click(object sender, EventArgs e)
         {
-            try 
-            { 
+            this.Close();
+        }
+
+        private void ExitButtonStaff_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ExitDish_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SaveWorkersButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 context.SaveChanges();
             }
             catch
             {
                 MessageBox.Show("вы ввели некорректные данные");
-            }            
+            }
             TablesWorkers.Invalidate();
         }
 
-        private void SaveButtonStaff_Click(object sender, EventArgs e)
+        private void SaveRoleButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -55,7 +70,7 @@ namespace CafeApp
             TableStaff.Invalidate();
         }
 
-        private void SaveDish_Click(object sender, EventArgs e)
+        private void SaveMenu_Click(object sender, EventArgs e)
         {
             try
             {

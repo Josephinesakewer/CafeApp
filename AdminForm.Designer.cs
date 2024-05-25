@@ -32,17 +32,20 @@
             tabPage1 = new TabPage();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
-            SaveButtonWorker = new Button();
+            SaveWorkerButton = new Button();
+            ExitButtonWorker = new Button();
             TablesWorkers = new DataGridView();
             tabPage2 = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel2 = new Panel();
-            SaveButtonStaff = new Button();
+            SaveRoleButton = new Button();
+            ExitButtonStaff = new Button();
             TableStaff = new DataGridView();
             tabPage3 = new TabPage();
             tableLayoutPanel4 = new TableLayoutPanel();
             panel4 = new Panel();
-            SaveDish = new Button();
+            SaveMenu = new Button();
+            ExitDish = new Button();
             TablesDish = new DataGridView();
             tabPage4 = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -74,20 +77,24 @@
             TableWorker.Controls.Add(tabPage3);
             TableWorker.Dock = DockStyle.Fill;
             TableWorker.Location = new Point(0, 0);
+            TableWorker.Margin = new Padding(3, 2, 3, 2);
             TableWorker.Name = "TableWorker";
+            TableWorker.RightToLeft = RightToLeft.No;
+            TableWorker.RightToLeftLayout = true;
             TableWorker.SelectedIndex = 0;
-            TableWorker.Size = new Size(800, 450);
+            TableWorker.Size = new Size(700, 338);
             TableWorker.TabIndex = 0;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(tableLayoutPanel1);
-            tabPage1.Location = new Point(4, 29);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Margin = new Padding(3, 2, 3, 2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(792, 417);
+            tabPage1.Padding = new Padding(3, 2, 3, 2);
+            tabPage1.Size = new Size(692, 310);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "Рабочие";
+            tabPage1.Text = "Персонал";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
@@ -98,52 +105,68 @@
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Controls.Add(TablesWorkers, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 3);
+            tableLayoutPanel1.Location = new Point(3, 2);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.3695087F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.63049F));
-            tableLayoutPanel1.Size = new Size(786, 411);
+            tableLayoutPanel1.Size = new Size(686, 306);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
-            panel1.Controls.Add(SaveButtonWorker);
+            panel1.Controls.Add(SaveWorkerButton);
+            panel1.Controls.Add(ExitButtonWorker);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(3, 2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(780, 40);
+            panel1.Size = new Size(680, 30);
             panel1.TabIndex = 1;
             // 
-            // SaveButtonWorker
+            // SaveWorkerButton
             // 
-            SaveButtonWorker.Dock = DockStyle.Right;
-            SaveButtonWorker.Location = new Point(686, 0);
-            SaveButtonWorker.Name = "SaveButtonWorker";
-            SaveButtonWorker.Size = new Size(94, 40);
-            SaveButtonWorker.TabIndex = 0;
-            SaveButtonWorker.Text = "Сохранить";
-            SaveButtonWorker.UseVisualStyleBackColor = true;
-            SaveButtonWorker.Click += SaveButtonWorker_Click;
+            SaveWorkerButton.Location = new Point(527, 1);
+            SaveWorkerButton.Name = "SaveWorkerButton";
+            SaveWorkerButton.Size = new Size(85, 29);
+            SaveWorkerButton.TabIndex = 1;
+            SaveWorkerButton.Text = "Сохранить";
+            SaveWorkerButton.UseVisualStyleBackColor = true;
+            SaveWorkerButton.Click += SaveWorkersButton_Click;
+            // 
+            // ExitButtonWorker
+            // 
+            ExitButtonWorker.Dock = DockStyle.Right;
+            ExitButtonWorker.Location = new Point(608, 0);
+            ExitButtonWorker.Margin = new Padding(3, 2, 3, 2);
+            ExitButtonWorker.Name = "ExitButtonWorker";
+            ExitButtonWorker.Size = new Size(72, 30);
+            ExitButtonWorker.TabIndex = 0;
+            ExitButtonWorker.Text = "Выход";
+            ExitButtonWorker.UseVisualStyleBackColor = true;
+            ExitButtonWorker.Click += ExitButtonWorker_Click;
             // 
             // TablesWorkers
             // 
             TablesWorkers.BackgroundColor = SystemColors.ControlLightLight;
             TablesWorkers.ColumnHeadersHeight = 29;
             TablesWorkers.Dock = DockStyle.Fill;
-            TablesWorkers.Location = new Point(3, 49);
+            TablesWorkers.Location = new Point(3, 36);
+            TablesWorkers.Margin = new Padding(3, 2, 3, 2);
             TablesWorkers.Name = "TablesWorkers";
             TablesWorkers.RowHeadersWidth = 51;
-            TablesWorkers.Size = new Size(780, 359);
+            TablesWorkers.Size = new Size(680, 268);
             TablesWorkers.TabIndex = 0;
             // 
             // tabPage2
             // 
             tabPage2.Controls.Add(tableLayoutPanel2);
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Margin = new Padding(3, 2, 3, 2);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(792, 417);
+            tabPage2.Padding = new Padding(3, 2, 3, 2);
+            tabPage2.Size = new Size(692, 310);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Роли";
             tabPage2.UseVisualStyleBackColor = true;
@@ -156,53 +179,69 @@
             tableLayoutPanel2.Controls.Add(panel2, 0, 0);
             tableLayoutPanel2.Controls.Add(TableStaff, 0, 1);
             tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 11.9904079F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 88.00959F));
-            tableLayoutPanel2.Size = new Size(792, 417);
+            tableLayoutPanel2.Size = new Size(693, 313);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // panel2
             // 
-            panel2.Controls.Add(SaveButtonStaff);
+            panel2.Controls.Add(SaveRoleButton);
+            panel2.Controls.Add(ExitButtonStaff);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 3);
+            panel2.Location = new Point(3, 2);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(786, 44);
+            panel2.Size = new Size(687, 33);
             panel2.TabIndex = 0;
             // 
-            // SaveButtonStaff
+            // SaveRoleButton
             // 
-            SaveButtonStaff.Dock = DockStyle.Right;
-            SaveButtonStaff.Location = new Point(691, 0);
-            SaveButtonStaff.Name = "SaveButtonStaff";
-            SaveButtonStaff.Size = new Size(95, 44);
-            SaveButtonStaff.TabIndex = 0;
-            SaveButtonStaff.Text = "Сохранить";
-            SaveButtonStaff.UseVisualStyleBackColor = true;
-            SaveButtonStaff.Click += SaveButtonStaff_Click;
+            SaveRoleButton.Location = new Point(522, 1);
+            SaveRoleButton.Name = "SaveRoleButton";
+            SaveRoleButton.Size = new Size(86, 32);
+            SaveRoleButton.TabIndex = 2;
+            SaveRoleButton.Text = "Сохранить";
+            SaveRoleButton.UseVisualStyleBackColor = true;
+            SaveRoleButton.Click += SaveRoleButton_Click;
+            // 
+            // ExitButtonStaff
+            // 
+            ExitButtonStaff.Dock = DockStyle.Right;
+            ExitButtonStaff.Location = new Point(604, 0);
+            ExitButtonStaff.Margin = new Padding(3, 2, 3, 2);
+            ExitButtonStaff.Name = "ExitButtonStaff";
+            ExitButtonStaff.Size = new Size(83, 33);
+            ExitButtonStaff.TabIndex = 0;
+            ExitButtonStaff.Text = "Выход";
+            ExitButtonStaff.UseVisualStyleBackColor = true;
+            ExitButtonStaff.Click += ExitButtonStaff_Click;
             // 
             // TableStaff
             // 
             TableStaff.BackgroundColor = SystemColors.ButtonHighlight;
             TableStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TableStaff.Dock = DockStyle.Fill;
-            TableStaff.Location = new Point(3, 53);
+            TableStaff.Location = new Point(3, 39);
+            TableStaff.Margin = new Padding(3, 2, 3, 2);
             TableStaff.Name = "TableStaff";
             TableStaff.RowHeadersWidth = 51;
-            TableStaff.Size = new Size(786, 361);
+            TableStaff.Size = new Size(687, 272);
             TableStaff.TabIndex = 1;
             // 
             // tabPage3
             // 
             tabPage3.Controls.Add(tableLayoutPanel4);
-            tabPage3.Location = new Point(4, 29);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Margin = new Padding(3, 2, 3, 2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(792, 417);
+            tabPage3.Padding = new Padding(3, 2, 3, 2);
+            tabPage3.Size = new Size(692, 310);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "Блюда";
+            tabPage3.Text = "Меню";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
@@ -213,43 +252,58 @@
             tableLayoutPanel4.Controls.Add(panel4, 0, 0);
             tableLayoutPanel4.Controls.Add(TablesDish, 0, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 3);
+            tableLayoutPanel4.Location = new Point(3, 2);
+            tableLayoutPanel4.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 11.3695087F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 88.63049F));
-            tableLayoutPanel4.Size = new Size(786, 411);
+            tableLayoutPanel4.Size = new Size(686, 306);
             tableLayoutPanel4.TabIndex = 2;
             // 
             // panel4
             // 
-            panel4.Controls.Add(SaveDish);
+            panel4.Controls.Add(SaveMenu);
+            panel4.Controls.Add(ExitDish);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(3, 3);
+            panel4.Location = new Point(3, 2);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(780, 40);
+            panel4.Size = new Size(680, 30);
             panel4.TabIndex = 1;
             // 
-            // SaveDish
+            // SaveMenu
             // 
-            SaveDish.Dock = DockStyle.Right;
-            SaveDish.Location = new Point(686, 0);
-            SaveDish.Name = "SaveDish";
-            SaveDish.Size = new Size(94, 40);
-            SaveDish.TabIndex = 0;
-            SaveDish.Text = "Сохранить";
-            SaveDish.UseVisualStyleBackColor = true;
-            SaveDish.Click += SaveDish_Click;
+            SaveMenu.Location = new Point(517, 0);
+            SaveMenu.Name = "SaveMenu";
+            SaveMenu.Size = new Size(85, 30);
+            SaveMenu.TabIndex = 1;
+            SaveMenu.Text = "Сохранить";
+            SaveMenu.UseVisualStyleBackColor = true;
+            SaveMenu.Click += SaveMenu_Click;
+            // 
+            // ExitDish
+            // 
+            ExitDish.Dock = DockStyle.Right;
+            ExitDish.Location = new Point(598, 0);
+            ExitDish.Margin = new Padding(3, 2, 3, 2);
+            ExitDish.Name = "ExitDish";
+            ExitDish.Size = new Size(82, 30);
+            ExitDish.TabIndex = 0;
+            ExitDish.Text = "Выход";
+            ExitDish.UseVisualStyleBackColor = true;
+            ExitDish.Click += ExitDish_Click;
             // 
             // TablesDish
             // 
             TablesDish.BackgroundColor = SystemColors.ControlLightLight;
             TablesDish.ColumnHeadersHeight = 29;
             TablesDish.Dock = DockStyle.Fill;
-            TablesDish.Location = new Point(3, 49);
+            TablesDish.Location = new Point(3, 36);
+            TablesDish.Margin = new Padding(3, 2, 3, 2);
             TablesDish.Name = "TablesDish";
             TablesDish.RowHeadersWidth = 51;
-            TablesDish.Size = new Size(780, 359);
+            TablesDish.Size = new Size(680, 268);
             TablesDish.TabIndex = 0;
             // 
             // tabPage4
@@ -304,10 +358,13 @@
             // 
             // AdminForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(700, 338);
             Controls.Add(TableWorker);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AdminForm";
             Text = "AdminForm";
             TableWorker.ResumeLayout(false);
@@ -337,20 +394,23 @@
         private TabPage tabPage2;
         private DataGridView TablesWorkers;
         private Panel panel1;
-        private Button SaveButtonWorker;
+        private Button ExitButtonWorker;
         private TableLayoutPanel tableLayoutPanel2;
         private Panel panel2;
         private DataGridView TableStaff;
-        private Button SaveButtonStaff;
+        private Button ExitButtonStaff;
         private TabPage tabPage3;
         private TableLayoutPanel tableLayoutPanel4;
         private Panel panel4;
-        private Button SaveDish;
+        private Button ExitDish;
         private DataGridView TablesDish;
         private TabPage tabPage4;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel panel3;
         private Button button1;
         private DataGridView dataGridView1;
+        private Button SaveWorkerButton;
+        private Button SaveRoleButton;
+        private Button SaveMenu;
     }
 }

@@ -77,5 +77,10 @@ namespace CafeApp
             OrderUpdate();
             MessageBox.Show("заказ отменен");
         }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace CafeApp
             var namesDishes = context.Dishes.Select(d => d.NameM).ToList();
             foreach (var name in namesDishes)
                 DishBox.Items.Add(name);
-            if(DishBox.Items.Count > 0)
+            if (DishBox.Items.Count > 0)
                 DishBox.SelectedIndex = 0;
         }
 
@@ -42,14 +42,19 @@ namespace CafeApp
         {
 
         }
+        private void StatusOrder_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void AddDish_Click(object sender, EventArgs e)
         {
             var dishName = DishBox.SelectedItem as string;
+            //var status = ;
             var count = (int)CountDish.Value;
             var price = context.Dishes.FirstOrDefault(d => d.NameM == dishName)!.Price;
-            var totalPrice = price*count;
-            var order = new string[] {dishName,price!?.ToString(),count.ToString(), totalPrice!?.ToString() };
+            var totalPrice = price * count;
+            var order = new string[] { dishName, price!?.ToString(), count.ToString(), totalPrice!?.ToString() };
             dataGridViewDishes.Rows.Add(order);
             var sum = 0;
             foreach (var row in dataGridViewDishes.Rows)
@@ -58,20 +63,23 @@ namespace CafeApp
                 sum += Convert.ToInt32(s.Cells[3].Value);
             }
             TotalSum.Text = "Общая стоимость = " + sum.ToString();
+            //StatusOrder.Text = "Текущий статус заказа: ";
         }
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
             var o = new Order();
             o.DateTimeStart = DateTime.Now;
+            
             var startStatus = context.StatusOrders.FirstOrDefault(s => s.NameS == "started");
             if (startStatus == null)
             {
                 startStatus = new StatusOrder { NameS = "started" };
+                StatusOrder.Text = "Текущий статус заказа: " + startStatus;
                 context.SaveChanges();
             }
             o.Status = startStatus;
-            var b = new Dictionary<string,int>();
+            var b = new Dictionary<string, int>();
             foreach (var row in dataGridViewDishes.Rows)
             {
                 var s = (DataGridViewRow)row;
@@ -85,33 +93,44 @@ namespace CafeApp
             }
             foreach (var row in b)
             {
-                var d = context.Dishes.FirstOrDefault( d => d.NameM == row.Key);
-                o.Baskets.Add(new Basket { Dish = d, Order = o, CountDishes = row.Value});
+                var d = context.Dishes.FirstOrDefault(d => d.NameM == row.Key);
+                o.Baskets.Add(new Basket { Dish = d, Order = o, CountDishes = row.Value });
+                
             }
-            if(client.Id != 0)
+            if (client.Id != 0)
             {
                 o.ClientId = client.Id;
                 client.Orders.Add(o);
-                
+
             }
             context.Orders.Add(o);
             try
             {
                 context.SaveChanges();
                 MessageBox.Show("заказ успешно прошел");
+                StatusOrder.Text = MessageBox.Show("заказ успешно прошел").ToString(); 
                 dataGridViewDishes.Rows.Clear();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("что-то пошло не так");
-            }   
-            
-            
+                StatusOrder.Text = "Текущий статус заказа: " + MessageBox.Show("что-то пошло не так").ToString(); 
+            }
+            //var status = StatusOrder.;
+            //StatusOrder.Text = status.ToString();
+
         }
 
-        private void buttonClear_Click(object sender, EventArgs e)
+        private void ClearButton_Click(object sender, EventArgs e)
         {
             dataGridViewDishes.Rows.Clear();
         }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

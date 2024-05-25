@@ -28,9 +28,9 @@ namespace CafeApp
             var login = textBoxLogin.Text;
             var password = textBoxPassword.Text;
             var name = textBoxName.Text;
-            var email = textBoxEmail.Text;
+            var address = textBoxAddress.Text;
             var phone = textBoxPhone.Text;
-            var client= new Models.Client { Email = email, Phone = phone, Login = login, Name = name, Password = password, NameC = name};
+            var client = new Models.Client { Address = address, Phone = phone, Login = login, Name = name, Password = password, NameC = name };
             var c1 = context.Clients.ToList().FirstOrDefault(c => c.Login == client.Login);
             if (c1 is null)
             {
@@ -40,6 +40,11 @@ namespace CafeApp
                 this.Close();
             }
 
+        }
+
+        private void Exit_Button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

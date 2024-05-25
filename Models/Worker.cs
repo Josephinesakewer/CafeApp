@@ -18,7 +18,7 @@ public partial class Worker
 
     public string? Phone { get; set; }
 
-    public string? Email { get; set; }
+    public string? Address { get; set; }
 
     public List<Order> OrderCookers { get; set; } = new ();
 

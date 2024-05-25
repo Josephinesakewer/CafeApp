@@ -23,8 +23,8 @@ namespace CafeApp
             var options = optionBuilder.UseSqlite("Data source = cafe.db").Options;
             context = new CafeContext(options);
             context.Staff.Load();
-            context.StatusOrders.Load();    
-            context.Workers.Load(); 
+            context.StatusOrders.Load();
+            context.Workers.Load();
             context.Orders.Load();
             var orderIds = context.Orders.
                 Include(o => o.Status).
@@ -47,11 +47,11 @@ namespace CafeApp
                 .ToList();
             foreach (var name in cookerNames)
                 CookerList.Items.Add(name);
-            if(OrdersList.Items.Count > 0)
+            if (OrdersList.Items.Count > 0)
                 OrdersList.SelectedIndex = 0;
-            if(deliverList.Items.Count > 0)
+            if (deliverList.Items.Count > 0)
                 deliverList.SelectedIndex = 0;
-            if(CookerList.Items?.Count > 0)
+            if (CookerList.Items?.Count > 0)
                 CookerList.SelectedIndex = 0;
         }
 
@@ -126,7 +126,7 @@ namespace CafeApp
             o.Deliever = d;
             o.Status = startStatus;
             textBoxDeliver.Text = deliverName;
-            
+
             context.SaveChanges();
             UpdateOrderList();
         }
@@ -204,7 +204,7 @@ namespace CafeApp
             {
                 textBoxStatus.Text = s;
             }
-           var oId = (int)OrdersList.SelectedItem;
+            var oId = (int)OrdersList.SelectedItem;
             var o = context.Orders.FirstOrDefault(o => o.Id == oId);
             var c = context.Workers.FirstOrDefault(d => d.Id == o.CookerId);
             var d = context.Workers.FirstOrDefault(d => d.Id == o.DelieverId);
@@ -221,6 +221,11 @@ namespace CafeApp
         private void Cooker_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
